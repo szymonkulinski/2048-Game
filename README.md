@@ -1,7 +1,7 @@
 # 2048 Game
 ## Description
 
-![image](https://user-images.githubusercontent.com/56955430/181585582-52446bb0-e578-48e1-be5b-abb424482796.png)
+![image](https://user-images.githubusercontent.com/56955430/181585582-52446bb0-e578-48e1-be5b-abb424482796.png =400x500)
 
 Based on the original 2048 Game. Game was Made in C# using Windows Forms, with some additional content:
 * Changing Visual Style
