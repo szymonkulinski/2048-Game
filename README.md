@@ -2,7 +2,7 @@
 ## Description
 
 ![image](https://user-images.githubusercontent.com/56955430/181585582-52446bb0-e578-48e1-be5b-abb424482796.png | width=100)
-
+- ![](https://gyazo.com/eb5c5741b6a9a16c692170a41a49c858.png | width=100)
 Based on the original 2048 Game. Game was Made in C# using Windows Forms, with some additional content:
 * Changing Visual Style
 * Saving score to the leaderboard
