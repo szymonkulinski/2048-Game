@@ -7,4 +7,4 @@
 Based on the original 2048 Game. Game was Made in C# using Windows Forms, with some additional content:
 * Changing Visual Style
 * Saving score to the leaderboard
-* Changing the play-size area (from 2x2 to 8x8(Bigger area size is achivable by changing the code, but there may be some preformance issues))
+* Changing the play-size area from 2x2 to 8x8(Bigger area size is achivable by changing the code, but there may be some preformance issues)
