@@ -96,3 +96,47 @@ Refreshing leaderboard
             }
         }
 ```
+## Cell.cs
+
+<i> Cell class represent each cell on the gameboard. </i>
+
+Class atributes:
+```cs
+        public const int cellStartingValueConst = 2;
+        public int cellStartingValue = cellStartingValueConst;
+        public Label cellLabel = new Label();
+        public int value;
+        public bool merged = false;
+```
+Each cell have it's own value and label we show the cell value with. Each cell has to know if it was merged in the current player move, because each cell can only merge one in one move.
+
+Colloring cells is based on the cell value. Cell can only increase its value when merging with a cell with the same value. Values can only increase by multiplication by 2.
+```cs
+        public void colorFill()
+        {               
+            if(value == cellStartingValue)
+                cellLabel.BackColor = ColorTranslator.FromHtml("#eee4da");
+            else if (value == cellStartingValue * 2)
+                cellLabel.BackColor = ColorTranslator.FromHtml("#ede0c8");
+            else if (value == cellStartingValue * 4)
+                cellLabel.BackColor = ColorTranslator.FromHtml("#f2b179");
+            else if (value == cellStartingValue * 8)
+                cellLabel.BackColor = ColorTranslator.FromHtml("#f59563");
+            else if (value == cellStartingValue * 16)
+                cellLabel.BackColor = ColorTranslator.FromHtml("#f65e3b");
+            else if (value == cellStartingValue * 32)
+                cellLabel.BackColor = ColorTranslator.FromHtml("#edcf72");
+            else if (value == cellStartingValue * 64)
+                cellLabel.BackColor = ColorTranslator.FromHtml("#f6cb5a");
+            else if (value == cellStartingValue * 128)
+                cellLabel.BackColor = ColorTranslator.FromHtml("#f7c74b");
+            else if (value == cellStartingValue * 256)
+                cellLabel.BackColor = ColorTranslator.FromHtml("#f8c440");
+            else if (value == cellStartingValue * 512)
+                cellLabel.BackColor = ColorTranslator.FromHtml("#eec22e");
+            else if (value == cellStartingValue * 1024)
+                cellLabel.BackColor = ColorTranslator.FromHtml("#FFA500");
+            else if (value == cellStartingValue * 2048)
+                cellLabel.BackColor = ColorTranslator.FromHtml("#FF8C00");
+        }
+```
