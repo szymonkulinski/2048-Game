@@ -54,4 +54,20 @@ Loading scores
         }
 ```
 
+Deleting scores
 
+<i> First we check if selected index of object to delete if greater than 0, becaouse object with index 0 is the first row of the leaderboard and stores the names of the columns. Later we delete the player and use saveScore method to save score</i>
+
+
+```cs
+        private void DeleteButton_Click(object sender, EventArgs e)
+        {
+            if (leaderBoardNameListBox.SelectedIndex > 0)
+            {
+                clickSound.Play();
+                players.RemoveAt(leaderBoardNameListBox.SelectedIndex - 1);
+                saveScore();
+                refreshLeaderboard();
+            }
+        }
+```
