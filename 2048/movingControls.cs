@@ -18,7 +18,6 @@ namespace _2048
         {
             gameTableLayout.SuspendLayout();
             bool somethingMoved = true;
-            bool spawnNewCell = false;
             while (somethingMoved)
             {
                 somethingMoved = false;
@@ -30,7 +29,6 @@ namespace _2048
                         {
                             cell[x, y].value *= 2;         
                             somethingMoved = true;
-                            spawnNewCell = true;
                             cell[x - 1, y].defaultSet();
                             cell[x, y].colorFill();
                             cell[x, y].cellLabel.Text = cell[x, y].value.ToString();
@@ -41,7 +39,6 @@ namespace _2048
                         {
                             cell[x, y].value = cell[x - 1, y].value;
                             somethingMoved = true;
-                            spawnNewCell = true;
                             cell[x - 1, y].defaultSet();
                             cell[x, y].colorFill();
                             cell[x, y].cellLabel.Text = cell[x, y].value.ToString();
@@ -50,7 +47,7 @@ namespace _2048
                 }
             }
             scoreNumber.Text = currentPlayer.score.ToString();
-            if (spawnNewCell)
+            if (somethingMoved)
             {
                 generateRandomCell();
                 moveSound.Play();
