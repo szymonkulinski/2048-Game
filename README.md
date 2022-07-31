@@ -172,4 +172,18 @@ It represent the game board. It has methods responsible for drawing the gameboar
             gameTableLayout.AutoSize = true;
         }
 ```
-Then we 
+Then we begin to create objects of class "cell" to each layout cell. Then we add labels to the layout cells labels, and then we bring the cell atributes to default settings.
+```cs
+        private void fillCells()
+        {
+            for (int i = 0; i < yCells; i++)
+            {
+                for (int j = 0; j < xCells; j++)
+                {
+                    cell[j, i] = new Cell();
+                    gameTableLayout.Controls.Add(cell[j, i].cellLabel, j, i);
+                    cell[j, i].defaultSet();
+                }
+            }
+        }
+```
