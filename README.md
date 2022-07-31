@@ -192,11 +192,10 @@ It represent the game board. It has methods responsible for drawing the gameboar
 Class that handles the player input. Player use arrow-keys to move the cells. There are 4 arrow-keys therefore there are 4 functions for handeling them, one for each. Since they are very similiar i will only explain one of them.
 
 ```cs
- private void moveRight()
+        private void moveRight()
         {
             gameTableLayout.SuspendLayout();
             bool somethingMoved = true;
-            bool spawnNewCell = false;
             while (somethingMoved)
             {
                 somethingMoved = false;
@@ -208,7 +207,6 @@ Class that handles the player input. Player use arrow-keys to move the cells. Th
                         {
                             cell[x, y].value *= 2;         
                             somethingMoved = true;
-                            spawnNewCell = true;
                             cell[x - 1, y].defaultSet();
                             cell[x, y].colorFill();
                             cell[x, y].cellLabel.Text = cell[x, y].value.ToString();
@@ -219,7 +217,6 @@ Class that handles the player input. Player use arrow-keys to move the cells. Th
                         {
                             cell[x, y].value = cell[x - 1, y].value;
                             somethingMoved = true;
-                            spawnNewCell = true;
                             cell[x - 1, y].defaultSet();
                             cell[x, y].colorFill();
                             cell[x, y].cellLabel.Text = cell[x, y].value.ToString();
@@ -228,7 +225,7 @@ Class that handles the player input. Player use arrow-keys to move the cells. Th
                 }
             }
             scoreNumber.Text = currentPlayer.score.ToString();
-            if (spawnNewCell)
+            if (somethingMoved)
             {
                 generateRandomCell();
                 moveSound.Play();
@@ -240,3 +237,6 @@ Class that handles the player input. Player use arrow-keys to move the cells. Th
             gameTableLayout.ResumeLayout();
         }
 ```
+<i> Firstly, we suspend layout for visual and preformance value. "somethingMoved" attribute is for handeling if the player did a valid move, meaning that at least one cell has moved. If none of the cell moved we dont want to generate a new cell. </i> 
+
+<i> Then we check cells to determine if the cell is capable of moving, if so, we move it. The cell has to have bigger value then 0 and the cell mergeValue has to be false to ensure that the cell will not merge more than once, and we need to ensure that cell will not go outside the layout boundaries. </i> 
