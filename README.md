@@ -172,7 +172,7 @@ It represent the game board. It has methods responsible for drawing the gameboar
             gameTableLayout.AutoSize = true;
         }
 ```
-Then we begin to create objects of class "cell" to each layout cell. Then we add labels to the layout cells labels, and then we bring the cell atributes to default settings.
+<i> Then we begin to create objects of class "cell" to each layout cell. Then we add labels to the layout cells labels, and then we bring the cell atributes to default settings. </i>
 ```cs
         private void fillCells()
         {
