@@ -108,9 +108,9 @@ Class atributes:
         public int value;
         public bool merged = false;
 ```
-Each cell have it's own value and label we show the cell value with. Each cell has to know if it was merged in the current player move, because each cell can only merge one in one move.
+<i> Each cell have it's own value and label we show the cell value with. Each cell has to know if it was merged in the current player move, because each cell can only merge one in one move. </i>
 
-Colloring cells is based on the cell value. Cell can only increase its value when merging with a cell with the same value. Values can only increase by multiplication by 2.
+<i> Colloring cells is based on the cell value. Cell can only increase its value when merging with a cell with the same value. Values can only increase by multiplication by 2. </i>
 ```cs
         public void colorFill()
         {               
@@ -138,5 +138,35 @@ Colloring cells is based on the cell value. Cell can only increase its value whe
                 cellLabel.BackColor = ColorTranslator.FromHtml("#FFA500");
             else if (value == cellStartingValue * 2048)
                 cellLabel.BackColor = ColorTranslator.FromHtml("#FF8C00");
+        }
+```
+## Board.cs
+
+It represent the game board. It has methods responsible for drawing the gameboard and filling it with cells.
+
+```cs
+        private void drawTable(int xWidth, int yHeigh)
+        {
+            gameTableLayout.SuspendLayout();
+            gameTableLayout.BackColor = ColorTranslator.FromHtml("#6C6060");
+
+            gameTableLayout.Location = new Point(18, 200);
+
+            gameTableLayout.Size = new Size((xCells * xWidth), (yCells * yHeigh));
+
+            gameTableLayout.ColumnCount = xCells;
+            gameTableLayout.RowCount = yCells;
+
+
+            for (int i = 0; i < xCells - 1; i++)
+            {
+                gameTableLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, xWidth));
+            }
+            for (int i = 0; i < yCells - 1; i++)
+            {
+                gameTableLayout.RowStyles.Add(new RowStyle(SizeType.Absolute, yHeigh));
+            }
+            Controls.Add(gameTableLayout);
+            gameTableLayout.AutoSize = true;
         }
 ```
