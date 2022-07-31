@@ -74,7 +74,7 @@ Deleting scores
 
 Refreshing leaderboard
 
-<i> First we delete the names and the scores of all players, then we reset the number that represent players placement. Then we name the columns, and then we add players to the list and their score.</i>
+<i> First we delete the names and the scores of all players, then we reset the number that represent players placement. Then we name the columns, and then we add players and their scores to the list.</i>
 
 ```cs
         private void refreshLeaderboard()
