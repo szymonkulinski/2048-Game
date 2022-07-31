@@ -187,3 +187,56 @@ It represent the game board. It has methods responsible for drawing the gameboar
             }
         }
 ```
+## movingControls.cs
+
+Class that handles the player input. Player use arrow-keys to move the cells. There are 4 arrow-keys therefore there are 4 functions for handeling them, one for each. Since they are very similiar i will only explain one of them.
+
+```cs
+ private void moveRight()
+        {
+            gameTableLayout.SuspendLayout();
+            bool somethingMoved = true;
+            bool spawnNewCell = false;
+            while (somethingMoved)
+            {
+                somethingMoved = false;
+                for (int x = xCells - 1; x > 0; x--)
+                {
+                    for (int y = 0; y < yCells; y++)
+                    {
+                        if (cell[x, y].value != 0 && cell[x - 1, y].value == cell[x, y].value && !cell[x, y].merged && !cell[x - 1, y].merged)
+                        {
+                            cell[x, y].value *= 2;         
+                            somethingMoved = true;
+                            spawnNewCell = true;
+                            cell[x - 1, y].defaultSet();
+                            cell[x, y].colorFill();
+                            cell[x, y].cellLabel.Text = cell[x, y].value.ToString();
+                            cell[x, y].merged = true;
+                            currentPlayer.score += cell[x, y].value;
+                        }
+                        else if (cell[x, y].value == 0 && cell[x - 1, y].value != 0)
+                        {
+                            cell[x, y].value = cell[x - 1, y].value;
+                            somethingMoved = true;
+                            spawnNewCell = true;
+                            cell[x - 1, y].defaultSet();
+                            cell[x, y].colorFill();
+                            cell[x, y].cellLabel.Text = cell[x, y].value.ToString();
+                        }
+                    }
+                }
+            }
+            scoreNumber.Text = currentPlayer.score.ToString();
+            if (spawnNewCell)
+            {
+                generateRandomCell();
+                moveSound.Play();
+            }
+            clearCellsMerge();
+
+            if (isGameDone())
+                gameOver();
+            gameTableLayout.ResumeLayout();
+        }
+```
