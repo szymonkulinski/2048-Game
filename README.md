@@ -22,6 +22,7 @@ Based on the original 2048 Game. Game was Made in C# using Windows Forms, with s
 List<Player> players = new List<Player>();
 ```
 Saving players score
+
 <i> We check if there is any new player to save, if so we save the list of players to file leaderboard.xml </i>
 ```cs
         private void saveScore()
@@ -37,7 +38,8 @@ Saving players score
         }
 ```
 Loading scores
-<i> We check if file exist, and if it exists then we take the list of players from leaderboard.xml file and copy it to the "players" list</i>
+
+<i> We check if file "leaderboard.xml" exist, and if it exists then we take the list of players from that file and copy its content to the "players" list deserializing it</i>
 ```cs
         private void loadScores()
         {
