@@ -9,3 +9,15 @@ C:\Users\HP\source\repos\2048\2048\obj\Debug\2048.csproj.CoreCompileInputs.cache
 C:\Users\HP\source\repos\2048\2048\obj\Debug\2048.exe
 C:\Users\HP\source\repos\2048\2048\obj\Debug\2048.pdb
 C:\Users\HP\source\repos\2048\2048\obj\Debug\_2048.Game.resources
+C:\Users\liett\Desktop\Szymon GIT\2048-Game\2048\bin\Debug\2048.exe.config
+C:\Users\liett\Desktop\Szymon GIT\2048-Game\2048\bin\Debug\2048.exe
+C:\Users\liett\Desktop\Szymon GIT\2048-Game\2048\bin\Debug\2048.pdb
+C:\Users\liett\Desktop\Szymon GIT\2048-Game\2048\obj\Debug\2048.csproj.AssemblyReference.cache
+C:\Users\liett\Desktop\Szymon GIT\2048-Game\2048\obj\Debug\2048.csproj.SuggestedBindingRedirects.cache
+C:\Users\liett\Desktop\Szymon GIT\2048-Game\2048\obj\Debug\_2048.Menu.resources
+C:\Users\liett\Desktop\Szymon GIT\2048-Game\2048\obj\Debug\_2048.Game.resources
+C:\Users\liett\Desktop\Szymon GIT\2048-Game\2048\obj\Debug\_2048.Properties.Resources.resources
+C:\Users\liett\Desktop\Szymon GIT\2048-Game\2048\obj\Debug\2048.csproj.GenerateResource.cache
+C:\Users\liett\Desktop\Szymon GIT\2048-Game\2048\obj\Debug\2048.csproj.CoreCompileInputs.cache
+C:\Users\liett\Desktop\Szymon GIT\2048-Game\2048\obj\Debug\2048.exe
+C:\Users\liett\Desktop\Szymon GIT\2048-Game\2048\obj\Debug\2048.pdb
