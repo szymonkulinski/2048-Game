@@ -142,8 +142,10 @@ Class atributes:
 ```
 ## Board.cs
 
-It represent the game board. It has methods responsible for drawing the gameboard and filling it with cells.
+<i> Its partial class of class "Game"
+It represent the game board. It has methods responsible for drawing the gameboard and filling it with cells. </i>
 
+<i> Drawing table begins with suspending the layout, to add all the necesery elements without user seeing it happening live. We set the basic attributes like coloring, location and the size of layout. Then we begin to add numbers of cells that is defined in the game class. </i>
 ```cs
         private void drawTable(int xWidth, int yHeigh)
         {
@@ -170,3 +172,4 @@ It represent the game board. It has methods responsible for drawing the gameboar
             gameTableLayout.AutoSize = true;
         }
 ```
+Then we 
