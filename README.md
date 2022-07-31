@@ -189,7 +189,7 @@ It represent the game board. It has methods responsible for drawing the gameboar
 ```
 ## movingControls.cs
 
-Class that handles the player input. Player use arrow-keys to move the cells. There are 4 arrow-keys therefore there are 4 functions for handeling them, one for each. Since they are very similiar i will only explain one of them.
+Class that handles cell moves. Player use arrow-keys to move the cells. There are 4 arrow-keys therefore there are 4 functions for handeling them, one for each. Since they are very similiar i will only explain one of them.
 
 ```cs
         private void moveRight()
@@ -240,3 +240,82 @@ Class that handles the player input. Player use arrow-keys to move the cells. Th
 <i> Firstly, we suspend layout for visual and preformance value. "somethingMoved" attribute is for handeling if the player did a valid move, meaning that at least one cell has moved. If none of the cell moved we dont want to generate a new cell. </i> 
 
 <i> Then we check cells to determine if the cell is capable of moving, if so, we move it. The cell has to have bigger value then 0 and the cell mergeValue has to be false to ensure that the cell will not merge more than once, and we need to ensure that cell will not go outside the layout boundaries. </i> 
+
+## Game.cs
+
+This class is responsible for handeling the user input and for user interface, as well as handeling the game itself. 
+
+Generating new cell
+```cs
+        private void generateRandomCell()
+        {
+            bool isFreeSpot = false;
+            for (int i = 0; i < xCells; i++)
+                for (int j = 0; j < yCells; j++)
+                    if (cell[i, j].value == 0) isFreeSpot = true;
+            int x = 0;
+            int y = 0;
+            bool isSet = false;
+
+            while (isFreeSpot && !isSet)
+            {
+                x = randomNumber.Next(xCells);
+                y = randomNumber.Next(yCells);
+                if (cell[x, y].value == 0)
+                {
+                    cell[x, y].value = cell[0, 0].cellStartingValue;
+                    isSet = true;
+                }
+            }
+            cell[x, y].colorFill();
+            cell[x, y].cellLabel.Text = cell[x, y].value.ToString();
+        }
+```
+<i> First we check if there is at least one free spot at the gameboard. If there is, we try to generate new cell at the random place, if the place is not free we generate a new random place. We stop the process when we find a new free spot and fill it with cell. </i>
+
+Handeling player input
+```cs
+        private void Game_KeyDown(object sender, KeyEventArgs e)
+        {
+            {
+                switch (e.KeyCode)
+                {
+                    case Keys.Up:
+                        moveUp();
+                        break;
+                    case Keys.Down:
+                        moveDown();
+                        break;
+                    case Keys.Left:
+                        moveLeft();
+                        break;
+                    case Keys.Right:
+                        moveRight();
+                        break;
+                }
+            }
+        }
+```
+It's a simple method that handle the input from the keys and execute a coresponding method from "movingControls" class.
+
+Checking if the game is over
+```cs
+        private bool isGameDone()
+        {
+            for (int x = 0; x < xCells; x++)
+                for (int y = 0; y < yCells; y++)
+                {
+                    if (cell[x, y].value == 0) return false;
+                    if (y > 0)
+                    {
+                        if (cell[x, y - 1].value == cell[x, y].value) return false;
+                    }
+                    if (x > 0)
+                    {
+                        if (cell[x - 1, y].value == cell[x, y].value) return false;
+                    }
+                }
+            return true;
+        }
+```
+Firstly we check if there is a cell with 0 value, if there is that means that we can make a move. If there is no cell with value 0 we just need to check every cell neighbor on the x and y asis. If there is at least one neighbor with the same value that means that the cells can merge and the player can still make a move.
