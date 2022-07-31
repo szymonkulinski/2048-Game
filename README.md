@@ -71,3 +71,28 @@ Deleting scores
             }
         }
 ```
+
+Refreshing leaderboard
+
+<i> First we delete the names and the scores of all players, then we reset the number that represent players placement. Then we name the columns, and then we add players to the list and their score.</i>
+
+```cs
+        private void refreshLeaderboard()
+        {
+            leaderBoardNameListBox.Items.Clear();
+            leaderBoardScoreListBox.Items.Clear();
+            int number = 1;
+            leaderBoardNameListBox.Items.Add("Nazwa:");
+            leaderBoardScoreListBox.Items.Add("Wynik:");
+            foreach (var osoba in players)
+            {
+                if(number<=10)
+                { 
+                string fullName = number + "." + osoba.name;
+                leaderBoardNameListBox.Items.Add(fullName);
+                leaderBoardScoreListBox.Items.Add(osoba.score);
+                }
+                number++;
+            }
+        }
+```
